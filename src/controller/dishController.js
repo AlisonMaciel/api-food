@@ -57,16 +57,16 @@ class DishController {
         if (ingredient) {
             try {
                 const tags = JSON.parse(ingredient).map(tag => tag.trim());
-                query = query.whereIn("tags.tag_name", tags);
+                query = query.whereIn("tags.tag_name", tags)
             } catch (error) {
-                return res.status(400).json({ error: "Formato inválido para ingredientes" });
+                return res.status(400).json({ error: "Formato inválido para ingredientes" })
             }
         }
     
-        query = query.groupBy("dish.id");
+        query = query.groupBy("dish.id")
     
-        const dishes = await query;
-        return res.json(dishes);
+        const dishes = await query
+        return res.json(dishes)
     }
     
         
