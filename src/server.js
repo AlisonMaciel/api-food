@@ -31,8 +31,8 @@ app.use((error, request, response, next) => {
     return response.status(500).json({
         message: "Erro interno no servidor"
     })
-})
-
-const PORT = process.env.PORT || 4444
+}) 
+ 
+const PORT = process.env.PORT || 8080 
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
