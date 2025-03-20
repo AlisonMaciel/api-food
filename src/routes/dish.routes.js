@@ -13,13 +13,13 @@ const dishRouter = Router()
 
 const uploads = multer(uploadsConfig.MULTER)
 
-dishRouter.use(verifyUserAuthenticated) 
+dishRouter.use(verifyUserAuthenticated)
 
 dishRouter.post("/", verifyUserAuthorization(["admin"]), dishController.create)
-dishRouter.put("/:id",verifyUserAuthorization(["admin"]), dishController.update)
+dishRouter.put("/:id", verifyUserAuthorization(["admin"]), dishController.update)
 dishRouter.delete("/:id",verifyUserAuthorization(["admin"]), dishController.delete)
 dishRouter.patch("/:avatar_dish/:id", verifyUserAuthorization(["admin"]), uploads.single("avatar_dish"), avatarDishController.avatarDish)
 dishRouter.get("/:id", dishController.show)
-dishRouter.get("/", dishController.index)
+dishRouter.get("/", dishController.index) 
 
-module.exports = dishRouter
+module.exports = dishRouter 

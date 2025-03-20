@@ -8,6 +8,6 @@ const paymentRouter = Router()
 
 paymentRouter.use(verifyUserAuthenticated)
 
-paymentRouter.post("/:user_id", paymentController.create)
+paymentRouter.post("/", paymentController.execute)
 
 module.exports = paymentRouter

@@ -10,9 +10,9 @@ class DishController {
         const dishRepository = new DishRepository()
         const dishCreateService = new DishCreateService(dishRepository)
 
-        await dishCreateService.execute({name, category, price, description, ingredient})
-
-        return res.status(201).json({ message: "Prato criado com sucesso!"})
+        const {dish_id} = await dishCreateService.execute({name, category, price, description, ingredient})
+      
+        return res.status(201).json({ id: dish_id, message: "Prato criado com sucesso!"})
     }
 
     async update(req, res) {
@@ -68,7 +68,6 @@ class DishController {
         const dishes = await query
         return res.json(dishes)
     }
-    
         
 }
 
